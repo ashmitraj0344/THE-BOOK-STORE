@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Book Store</title>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style: none;
+            font-family: "poppins";
+        }
+        
+        .navbar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            height: 80px;
+            background: #072019;
+        }
+        
+        .navbar h2{
+            color: #ffffff;
+            font-size: 25px;
+            font-weight: 500;
+            padding: 0px 20px;
+        }
+        
+        .navmenu{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .navmenu li{
+            display: inline-block;
+        }
+        
+        .navmenu li a{
+            color: #ffffff;
+            margin-right: 20px;
+            padding: 0px 5px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        
+        .navmenu .search-box .search{
+            padding: 8px 6px;
+            border-radius: 50px;
+            font-size: 16px;
+        }
+        
+        .navmenu .search-box  i{
+            color: #ffffff;
+            position: relative;
+            right: 50px;
+            top: 2px;
+            background-color: #0b910b;
+            padding: 12px;
+            border-radius: 50px;
+        }
+        section {
+            width: 100%;
+            height: 100vh;
+            background-image: url(https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm00ODYtYmctMDI5LWt6MG4zZ290LmpwZw.jpg);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        section nav{
+            width: 100%;
+            top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            box-shadow: 0 0 100px white;
+            background:white;
+            position: fixed;
+            left: 0;
+            z-index: 100;
+        }
+        
+        section nav .logo img{
+            width: 100px;
+            cursor: pointer;
+            margin: 8px 0;
+        }
+        section nav ul{
+            list-style: none;
+        }
+        
+        section nav li{
+            display: inline-block;
+            padding: 0 10px;
+        }
+        
+        section nav li a{
+            text-decoration:none;
+            font-weight:550px;
+            color: #0a0a0a;
+            font-size:x-large;
+            
+            
+        }
+        
+        section nav li a:hover{
+            color: white;
+        }
+        
+        section nav .social_icon i{
+            color: #0a0a0a;
+            margin: 0 5px;
+            font-size: 20px;
+            
+        }
+        section nav .social_icon i:hover{
+            cursor: pointer;
+            
+        }
+        
+        .reviews {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 100px; 
+            left: 0;
+            z-index: 2; 
+        }
+        
+        .reviews h1{
+            text-align: center;
+            font-size: 60px;
+            margin-top: 5px;
+            text-decoration: underline;
+            
+        }
+        
+        .reviews .review_box{
+            width: 95%;
+            height: 50vh;
+            margin: 80px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            float: inline-end;
+        }
+        
+        .reviews .review_box .review_card{
+            width: 400px;
+            height: 400px;
+            box-shadow: 0 0 8px ;
+            padding: 15px;
+            margin: 0 12px;
+            
+        }
+        
+        .reviews .review_box .review_card i{
+            float: right;
+            font-size: 120px;
+            position: relative;
+            bottom: 20px;
+            color: #060606;
+        }
+        
+        .reviews .review_box .review_card .card_top img{
+            width: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        
+        .reviews .review_box .review_card .card p{
+            margin: 10px 0 10px 0;
+            text-align: justify;
+            line-height: 22px;
+        }
+        
+        .reviews .review_box .review_card .card .review_icon i{
+            font-size: 20px;
+            float: left;
+            margin-top: 18px;
+            color: #0b0b0b;
+            padding: 0 1px;
+            
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h2>The Book Store</h2>
+            </div>
+
+            <div class="navmenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html">Books</a></li>
+                    <li><a href="arrival.html">Arrivals</a></li>
+                    <li><a href="review.html">Reviews</a></li>
+                    <li><a href="signin.html">Sign In</a></li>
+                </ul>
+                <div class="search-box">
+                    <input type="search" class="search" placeholder="Search hear...">
+                    <i class="bx bx-search"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="reviews">
+        <h1>Reviews</h1>
+
+        <div class="review_box">
+
+            <div class="review_card">
+                <div class="card_top">
+                    <img src="https://img.freepik.com/free-vector/handsome-man-face-cartoon_1308-150481.jpg">
+                </div>
+                <div class="card">
+                    <h2>Mayank Sinha</h2>
+                    <p>If you're a book lover seeking solace in the midst of the chaos of everyday life, look no further than this charming bookstore.
+                        From the moment you step inside, you're greeted by shelves overflowing with literary treasures waiting to be discovered.
+                        The cozy ambiance invites you to lose yourself among the pages of your favorite novels while sipping on a warm cup of tea.
+                    
+                    </p>
+                    <div class="review_icon">
+                        <i class="fa-solid fa fa-star"></i>
+                        <i class="fa-solid fa fa-star"></i>
+                        <i class="fa-solid fa fa-star"></i>
+                        <i class="fa-solid fa fa-star"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review_card">
+                <div class="card_top">
+                    <img src="https://img.freepik.com/premium-vector/cute-girl-face-cartoon-style_1639-51505.jpg">
+                </div>
+                <div class="card">
+                    <h2>Riya Srivastwa</h2>
+                    <p>Stepping into this bookstore feels like entering another world entirely a world where stories come to life and imagination knows no bounds.
+                        The shelves are lined with tales waiting to be told, from timeless classics to the latest bestsellers. Whether you're in search of adventure,
+                        romance, or mystery, you're sure to find it here. The staff's passion for literature is infectious, and their recommendations never disappoint.
+                    
+                    </p>
+                    <div class="review_icon">
+                        <i class="fa-solid fa fa-star"></i>
+                        <i class="fa-solid fa fa-star"></i>
+                        <i class="fa-solid fa fa-star"></i>
+                        <i class="fa-solid fa fa-star"></i>
+                        <i class="fa-solid fa fa-star-half"></i>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="review_card">
+                <div class="card_top">
+                    <img src="https://img.freepik.com/premium-vector/cute-girl-face-cartoon-style_1639-51505.jpg">
+                </div>
+                <div class="card">
+                    <h2>Gargi Sinha</h2>
+                    <p>Community Hub for Book Enthusiasts
+                        This bookstore isn't just a place to buy books  it's a thriving community hub where book enthusiasts
+                        come together to share their love of literature. From lively book club discussions to author signings
+                        and themed events, there's always something exciting happening here
+                    </p>
+                    <div class="review_icon">
+                        <i class="fa-solid fa fa-star"></i>
+                        <i class="fa-solid fa fa-star"></i>
+                        <i class="fa-solid fa fa-star"></i>
+                        <i class="fa-solid fa fa-star"></i>
+                        <i class="fa-solid fa fa-star-half"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review_card">
+                <div class="card_top">
+                    <img src="https://img.freepik.com/premium-vector/cute-girl-face-cartoon-style_1639-51505.jpg">
+                </div>
+                <div class="card">
+                    <h2>Shivani</h2>
+                    <p>Tucked away amidst the hustle and bustle of the city, this bookstore is a true literary oasis for weary
+                        souls in need of escape. The moment you step through the door, you're enveloped in a sense of calm and
+                        serenity. The shelves are stocked with a carefully curated selection of books, ranging from beloved
+                        classics to hidden gems waiting to be unearthed. 
+                    </p>
+                    <div class="review_icon">
+                        <i class="fa-solid fa fa-star"></i>
+                        <i class="fa-solid fa fa-star"></i>
+                        <i class="fa-solid fa fa-star"></i>
+                        <i class="fa-solid fa fa-star"></i>
+                        <i class="fa-solid fa fa-star-half"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html> 

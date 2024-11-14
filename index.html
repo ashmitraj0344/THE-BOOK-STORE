@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Book Store</title>
+
+     <!------ font awesome cdn ----->
+     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <style>
+        *{
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style: none;
+            font-family: "poppins";
+        }
+        
+        .navbar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            height: 80px;
+            background: #072019;
+        }
+        
+        .navbar h2{
+            color: #ffffff;
+            font-size: 25px;
+            font-weight: 500;
+            padding: 0px 20px;
+        }
+        
+        .navmenu{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .navmenu li{
+            display: inline-block;
+        }
+        
+        .navmenu li a{
+            color: #ffffff;
+            margin-right: 20px;
+            padding: 0px 5px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        
+        .navmenu .search-box .search{
+            padding: 8px 6px;
+            border-radius: 50px;
+            font-size: 16px;
+        }
+        
+        .navmenu .search-box  i{
+            color: #ffffff;
+            position: relative;
+            right: 50px;
+            top: 2px;
+            background-color: #0b910b;
+            padding: 12px;
+            border-radius: 50px;
+        }
+        
+        .section{
+            width: 100%;
+            height: 1200px;
+            float: left;
+            box-sizing: border-box;
+            border-width: 1px;
+            border-style: solid;
+            
+        
+        }
+        .main-header{
+            width: 75%;
+            margin: auto;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        
+        .main-header h5{
+            font-size: 22px;
+            color: #0b910b;
+            font-weight: 550;
+        }
+        
+        .main-header h2{
+            font-size: 48px;
+            width: 340px;
+            margin-top: 10px;
+            margin-bottom: 24px;
+        }
+        
+        .main-header h3{
+            margin-bottom: 60px;
+            font-size: 25px;
+        }
+        
+        .main-header .btn{
+            background: #0b910b;
+            border: 1px solid #0b910b;
+            font-size: 24px;
+            color: #ffffff;
+            font-weight: 400;
+            padding: 12px 30px;
+            border-radius: 50px;
+            transition: all .5s;
+        }
+        
+        .main-header .btn:hover{
+            color: #0b910b;
+            background: #ffffff;
+        }
+        
+        .main-header img{
+            width: 560px;
+            height: auto;
+        }
+        /* Section Styles */
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 5px;
+        }
+        
+        
+        
+        .book-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        
+        .book-item {
+            flex: 1 0 30%;
+            margin: 10px;
+            padding: 20px;
+            background-color: #c3c1c1;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .book-item img {
+            width: 100px;
+            height: 150px;
+            object-fit: cover;
+        }
+        
+        .book-item p {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        
+        .price {
+            text-decoration: line-through;
+            color: red;
+        }
+        
+        .discounted-price {
+            color: green;
+            font-weight: bold;
+        }
+        
+        .book-item:hover {
+            transform: scale(1.05);
+        }
+        
+        button {
+            padding: 10px;
+            background-color: #1b741b;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background-color: #2cb82c;
+        }
+        /*footer*/
+        footer{
+            width: 100%;
+            background: #c3c1c1;
+        }
+        
+        footer .footer_main{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        footer .footer_main .tag{
+            margin: 10px 0;
+        }
+        
+        footer .footer_main .tag img{
+            width: 100px;
+            margin-bottom: 10px;
+            border-radius: 100px;
+        }
+        
+        footer .footer_main .tag p{
+            width: 250px;
+            line-height: 22px;
+            text-align: justify;
+        }
+        
+        footer .footer_main .tag h1{
+            font-size: 25px;
+            margin: 25px 0;
+            color: #000;
+        }
+        
+        footer .footer_main .tag a{
+            display: block;
+            color: black;
+            text-decoration: none;
+            margin: 10px 0;
+        }
+        
+        footer .footer_main .tag i{
+            margin-right: 10px;
+        }
+        
+        footer .footer_main .tag .social_link i{
+            margin: 0 5px;
+        }
+        
+        footer .footer_main .tag .search_bar{
+            width: 230px;
+            height: 30px;
+            background: rgba(202,202,202);
+            border-radius: 25px;
+        }
+        footer .footer_main .tag .search_bar a {
+            display: inline-block;
+            padding: 7px 15px;
+            background: black;
+            border: none;
+            margin-top: 15px;
+            border-radius: 25px;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        footer .footer_main .tag .search_bar input{
+            width: 200px;
+            padding: 2px 0;
+            position: relative;
+            top: 17%;
+            left: 6%;
+            border: none;
+            outline: none;
+            font-size: 13px;
+            background: none;
+        }
+        
+        footer .footer_main .tag .search_bar button{
+            padding: 7px 15px;
+            background: black;
+            border: none;
+            margin-top: 15px;
+            border-radius: 25px;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        footer .end{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            color: #000;
+        }
+        
+        footer .end span{
+            color: black;
+            margin-left: 10px;
+        }
+     </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h2>The Book Store</h2>
+            </div>
+
+            <div class="navmenu">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#jee-mains">Books</a></li>
+                    <li><a href="arrival.html">New Arrivals</a></li>
+                    <li><a href="#footer">Contact Us</a></li>
+                    <li><a href="review.html">Reviews</a></li>
+                    <li><a href="signin.html">Sign In</a></li>
+                </ul>
+                <div class="search-box">
+                    <input type="search" class="search" placeholder="Search hear...">
+                    <i class="bx bx-search"></i>
+                </div>
+            </div>
+        </nav>
+        <div class="main-header">
+            <div class="header">
+                <h5>The Book Store</h5>
+                <h2>For All Your Reading Needs</h2>
+                <h3>"A book is a dream you hold in your hands." - Neil Gaiman</h3>
+
+
+
+                <a href="https://en.wikipedia.org/wiki/Book" class="btn">Read More</a>
+            </div>
+
+            <img src="image/slider-img.png" alt="">
+        </div>
+    
+    </header>
+
+    <section id="jee-mains">
+        <h1>JEE Mains &amp; Advanced Books</h1>
+        <div class="book-list">
+            <div class="book-item">
+                <img src="image/hcv1.jpg" alt="JEE Book 1">
+                <p>HC Verma - Physics (Part 1) By-HC VERMA</p>
+                <p><span class="price">₹560</span> <span class="discounted-price">₹500</span></p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="book-item">
+                <img src="image/hcv2.jpg" alt="JEE Book 2">
+                <p>HC Verma - Physics (Part 2) By-HC VERMA</p>
+                <p><span class="price">₹494</span> <span class="discounted-price">₹480</span></p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="book-item">
+                <img src="image/sachin sir book.jpg" alt="JEE Book 3">
+                <p> Calculus Core By Sachin Jakhar</p>
+                <p><span class="price">₹649</span> <span class="discounted-price">₹374</span></p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="book-item">
+                <img src="image/pankaj sir book.jpg" alt="JEE Book 4">
+                <p>PW Chemistry Med Easy - Pankaj Sijairya</p>
+                <p><span class="price">₹525</span> <span class="discounted-price">₹369</span></p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="book-item">
+                <img src="image/cenguage jee.jpg" alt="JEE Book 5">
+                <p>12 YEARS' JEE (MAIN) WITH SOLUTION - Cenguage</p>
+                <p><span class="price">₹849</span> <span class="discounted-price">₹506</span></p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="book-item">
+                <img src="image/narendra_book.jpg" alt="JEE Book 6">
+                <p>Problems in Physical Chemistry for JEE (Main &amp; Advanced) - Narendra Avasthi</p>
+                <p><span class="price">₹658</span> <span class="discounted-price">₹628</span></p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="book-item">
+                <img src="image/rajwant sir book.jpg" alt="JEE Book 7">
+                <p>PW Supernova Physics For JEE Advanced and Olympiads - Rajwant Sir and Heimant Sir</p>
+                <p><span class="price">₹500</span> <span class="discounted-price">₹289</span></p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="book-item">
+                <img src="image/irodov.jpg" alt="JEE Book 8">
+                <p>Arihant Classic Text Series(Problems in General Physics) - I. E. Irodov</p>
+                <p><span class="price">₹185</span> <span class="discounted-price">₹126</span></p>
+                <button>Add to Cart</button>
+            </div>
+            
+        </div>
+    </section>
+
+    
+    <section id="board-12">
+        <h1>12th Class Books</h1>
+        <div class="book-list">
+            <div class="book-item">
+                <img src="image/phy11p1.jpg" alt="NCERT Physics 12th Class">
+                <p>Physics Textbook Part 1 For Class 11- NCERT</p>
+                <p><span class="price">₹160</span> <span class="discounted-price">₹151</span></p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="book-item">
+                <img src="image/phy11p2.jpg" alt="NCERT Chemistry 12th Class">
+                <p>Physics Textbook Part 2 For Class 11 - NCERT</p>
+                <p><span class="price">₹140</span> <span class="discounted-price">₹135</span></p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="book-item">
+                <img src="image/chem11p1.jpg" alt="NCERT Chemistry 12th Class">
+                <p>Chemistry Textbook Part 1 For Class 11- NCERT Textbook Part 1 For Class 11- NCERT</p>
+                <p><span class="price">₹220</span> <span class="discounted-price">₹214</span></p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="book-item">
+                <img src="image/chem11p2.jpg" alt="NCERT Chemistry 12th Class">
+                <p>Chemistry Textbook Part 2 For Class 11- NCERT Textbook Part 1 For Class 11- NCERT</p>
+                <p><span class="price">₹320</span> <span class="discounted-price">₹135</span></p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="book-item">
+                <img src="image/phy12p1.jpg" alt="NCERT Chemistry 12th Class">
+                <p>Physics Textbook Part 1 For Class 12 - NCERT</p>
+                <p><span class="price">₹330</span> <span class="discounted-price">₹165</span></p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="book-item">
+                <img src="image/phy12p2.jpg" alt="NCERT Chemistry 12th Class">
+                <p>Physics Textbook Part 2 For Class 12 - NCERT</p>
+                <p><span class="price">₹140</span> <span class="discounted-price">₹62</span></p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="book-item">
+                <img src="image/chem12p1.jpg" alt="NCERT Chemistry 12th Class">
+                <p>Chemistry Textbook Part 1 For Class 12- NCERT Textbook Part 1 For Class 11- NCERT</p>
+                <p><span class="price">₹220</span> <span class="discounted-price">₹190</span></p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="book-item">
+                <img src="image/chem12p2.jpg" alt="NCERT Chemistry 12th Class">
+                <p>Chemistry Textbook Part 2 For Class 12- NCERT Textbook Part 1 For Class 11- NCERT</p>
+                <p><span class="price">₹180</span> <span class="discounted-price">₹132</span></p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="book-item">
+                <img src="image/math12p1.jpg" alt="NCERT Chemistry 12th Class">
+                <p>Mathematics Part I For Class 12 - NCERT</p>
+                <p><span class="price">₹150</span> <span class="discounted-price">₹139</span></p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="book-item">
+                <img src="image/math12p2.jpg" alt="NCERT Chemistry 12th Class">
+                <p>Mathematics Part II For Class 12 - NCERT</p>
+                <p><span class="price">₹160</span> <span class="discounted-price">₹155</span></p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="book-item">
+                <img src="image/math11.jpg" alt="NCERT Chemistry 12th Class">
+                <p>Mathematics For Class 11 - NCERT</p>
+                <p><span class="price">₹260</span> <span class="discounted-price">₹215</span></p>
+                <button>Add to Cart</button>
+            </div>
+            
+        </div>
+    </section>
+
+    
+    <section id="engineering">
+        <h1>● Engineering Books </h1>
+        <div class="book-list">
+            <div class="book-item">
+                <img src="image/rkjain.jpg" alt="Engineering Book 1">
+                <p>ADVANCED ENGINEERING MATHEMATICS - R.K.Jain</p>
+                <p><span class="price">₹1600</span> <span class="discounted-price">₹1330</span></p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="book-item">
+                <img src="image/drawingp1.jpg" alt="Engineering Book 2">
+                <p>ENGINEERING DRAWING - Dhananjay Jolhe</p>
+                <p><span class="price">₹700</span> <span class="discounted-price">₹650</span></p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="book-item">
+                <img src="image/cse111.jpg" alt="Engineering Book 3">
+                <p>OPERATING SYSTEM CONCEPTS - Willey</p>
+                <p><span class="price">₹1500</span> <span class="discounted-price">₹1299</span></p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="book-item">
+                <img src="image/cse326.jpg" alt="Engineering Book 4">
+                <p>MASTERING HTML, CSS &amp; Java Script Web Publishing - LAURA LE MAY</p>
+                <p><span class="price">₹700</span> <span class="discounted-price">₹539</span></p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="book-item">
+                <img src="image/phyengg.jpg" alt="Engineering Book 5">
+                <p>FUNDAMENTAL OF PHYSICS - HALLIDAY D</p>
+                <p><span class="price">₹700</span> <span class="discounted-price">₹630</span></p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="book-item">
+                <img src="image/cse123.jpg" alt="Engineering Book 6">
+                <p>Introduction to Programming with C++ for Engineers - Boguslaw Cyganek</p>
+                <p><span class="price">₹10,166</span> <span class="discounted-price">₹9676</span></p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="book-item">
+                <img src="image/mth170.jpg" alt="Engineering Book 7">
+                <p>Discrete Mathematics and Its Applications - DR. KAMALA KRITHIVASAN</p>
+                <p><span class="price">₹1,095</span> <span class="discounted-price">₹817</span></p>
+                <button>Add to Cart</button>
+            </div>
+            
+        </div>
+    </section>
+    <footer>
+        
+        <div class="footer_main" id="footer">
+
+            <div class="tag">
+                <img src="https://i.pinimg.com/originals/95/f8/58/95f8588d6469a16271ea2d2fad419d00.png">
+                <p>
+                    
+                Thank you for visiting our book store! We're delighted you stopped by. Explore our diverse
+                selection and find your next literary adventure. Remember, our staff is here to help. Happy reading,
+                and we look forward to welcoming you back soon!
+                </p>
+
+            </div>
+
+            <div class="tag">
+                <h1>Quick Link</h1>
+                <a href="#">Home</a>
+                <a href="#jee-mains">Book</a>
+                <a href="arrival.html">Arrival</a>
+                <a href="review.html">Reviews</a>
+                <a href="signin.html">Sign In</a>
+                
+                
+            </div>
+
+            <div class="tag">
+                <h1>Contact Info</h1>
+                <a href="#"><i class="fa-solid fa fa-phone"></i>+91 12 345 6789</a>
+                <a href="#"><i class="fa-solid fa fa-phone"></i>+91 32 444 699</a>
+                <a href="#"><i class="fa-solid fa fa-envelope"></i>bookstore123@gmail.com</a>
+                
+            </div>
+
+            <div class="tag">
+                <h1>Follow Us</h1>
+                <div class="social_link">
+                    <i class="fa-brands fa fa-facebook-f"></i>
+                    <i class="fa-brands fa fa-instagram"></i>
+                    <i class="fa-brands fa fa-twitter"></i>
+                    <i class="fa-brands fa fa-linkedin"></i>
+                </div>
+                
+            </div>
+
+            <div class="tag">
+                <h1>Contact Us</h1>
+                <div class="search_bar">
+                    <input type="text" placeholder="enter your email id">
+                    <a href="contact.html" class="login-button">Enter</a>
+                </div>                
+            </div>            
+            
+        </div>
+    
+
+        <p class="end">Design By<span><i class="fa-solid fa-face-grin"></i>-ASHMIT RAJ</span></p>
+
+    </footer>
+</body>
+</html>
